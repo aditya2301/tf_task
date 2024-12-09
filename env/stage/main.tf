@@ -11,13 +11,14 @@ data "aws_ami" "amazon_linux_2" {
 }
 
 # Example EC2 instance
-resource "aws_instance" "newbox" {
+resource "aws_instance" "newbox-stage" {
   ami           = data.aws_ami.amazon_linux_2.id
   instance_type = var.instance_type
 
   tags = {
     Name = "NewRelicBox"
     Cost = "SRE"
+    env=stage
   }
 
   # An example EC2 instance created with Terraform
