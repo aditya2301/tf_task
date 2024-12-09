@@ -7,7 +7,12 @@ on:
 jobs:
   terraform-plan:
     runs-on: ubuntu-latest
-    
+    strategy:
+      matrix:
+        directory: ['env/dev', 'env/stage', 'env/prod']
+    defaults:
+      run:
+        working-directory: ${{ matrix.directory }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -24,12 +29,12 @@ jobs:
 
     - name: Terraform Init
       id: init
-      run: terraform init
+      run: terraform init -no-color
       working-directory: .
 
     - name: Terraform Validate
       id: validate
-      run: terraform validate
+      run: terraform validate -no-color
       working-directory: .
 
     - name: Terraform Plan
