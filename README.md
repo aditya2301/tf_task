@@ -27,10 +27,7 @@ This project demonstrates a basic Terraform configuration for deploying web app 
    ```
    terraform plan
    ```
-5. Apply the changes:
-   ```
-   terraform apply
-   ```
+
 
 ## Important Notes
 
