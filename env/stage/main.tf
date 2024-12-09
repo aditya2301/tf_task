@@ -18,7 +18,7 @@ resource "aws_instance" "newbox-stage" {
   tags = {
     Name = "NewRelicBox"
     Cost = "SRE"
-    env=stage
+    env="stage"
   }
 
   # An example EC2 instance created with Terraform
