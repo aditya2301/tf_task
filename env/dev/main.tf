@@ -1,5 +1,6 @@
 
 # Data source for the latest Amazon Linux 2 AMI
+/*
 data "aws_ami" "amazon_linux_2" {
   most_recent = true
   owners      = ["amazon"]
@@ -9,10 +10,10 @@ data "aws_ami" "amazon_linux_2" {
     values = ["amzn2-ami-hvm-*-x86_64-gp2"]
   }
 }
-
+*/
 # Example EC2 instance
 resource "aws_instance" "newbox-dev" {
-  ami           = data.aws_ami.amazon_linux_2.id
+  ami           = var.instance_ami
   instance_type = var.instance_type
 
   tags = {
@@ -25,7 +26,14 @@ resource "aws_instance" "newbox-dev" {
 }
 
 # Output the instance ID
+/*
 output "instance_id" {
   description = "The ID of the created EC2 instance"
   value       = aws_instance.newbox-dev.id
+}
+*/
+
+output "webserver_ip" {
+  description = "The public IP EC2 instance"
+  value       = "http://${aws_instance.newbox-dev.public_ip}/"
 }

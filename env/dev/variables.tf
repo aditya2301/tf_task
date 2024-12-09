@@ -9,3 +9,9 @@ variable "instance_type" {
   type        = string
   default     = "t2.micro"
 }
+
+variable "instance_ami" {
+  description = "The Image for the webserver"
+  type        = string
+  default     = "ami-010ff12841d83a957"
+}
