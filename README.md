@@ -18,7 +18,7 @@ This project demonstrates a basic Terraform configuration for deploying web app 
 ## Usage
 
 1. Clone this repository
-2. Update the S3 backend configuration in `main.tf` with your bucket and DynamoDB table names
+2. Update the S3 backend configuration in `main.tf` with your bucket.
 3. Initialize Terraform:
    ```
    terraform init
@@ -26,6 +26,11 @@ This project demonstrates a basic Terraform configuration for deploying web app 
 4. Review the planned changes:
    ```
    terraform plan
+   ```
+4. On merging of PR, Review the planned and applied changes:
+   ```
+   terraform plan
+   terraform apply -auto-approve
    ```
 
 
