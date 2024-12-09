@@ -1,4 +1,4 @@
-name: Terraform Plan
+name: Terraform Plan & Apply
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   terraform-plan-apply:
-    if: github.event.pull_request.merged == true
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     strategy:
       matrix:
